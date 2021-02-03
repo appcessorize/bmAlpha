@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blackmail</title>
+
+    <meta
+      name="description"
+      content="Blackmail yourself into not using your phone"
+    />
+    <!-- animate css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      html,
+      body {
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+
+      body {
+        position: relative;
+      }
+
+      @font-face {
+        font-family: Whirlybirdie;
+        src: url(./WhirlyBirdieVariable.woff2);
+      }
+
+      @font-face {
+        font-family: Whirlybats;
+        src: url(./WhirlyBatsVariable.woff2);
+      }
+
+      #wbats {
+        font-family: "Whirlybats";
+        animation: whirlyAnimate 1s linear infinite;
+      }
+
+      #wb-bold {
+        font-family: "Whirlybirdie";
+        font-variation-settings: "wght" 100, "wdth" 150, "ital" 0;
+      }
+      #wb-light {
+        font-family: "Whirlybirdie";
+        font-variation-settings: "wght" 70, "wdth" 150, "ital" 0;
+      }
+
+      .baskerville {
+        font-family: Baskerville, "Baskerville Old Face", "Hoefler Text",
+          Garamond, "Times New Roman", serif;
+      }
+
+      @keyframes whirlyAnimate {
+        0% {
+          font-variation-settings: "anim" 100;
+        }
+        100% {
+          font-variation-settings: "anim" 200;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-black w-screen h-screen box-border">
+    <div class="h-screen bg-white">
+      <header class="mt-0 flex justify-center bg-black">
+        <h1 class="text-gray-100" id="wb-bold">
+          BLACK<span class="text-red-500">MAIL
+        </h1>
+      </header>
+      <div
+        class="flex flex-col items-center justify-around bg-black h-2/3 text-gray-200 text-xl tracking-wide baskerville"
+        id="contentDiv"
+      >
+        <!-- <img src="./manPointing.png" class="h-1/5 mt-24 mb-4" alt="avatar" /> -->
+
+        <h2
+          class="text-black text-8xl w-32 h-32 rounded-full bg-red-500 flex justify-center items-center fixed top-10 avatarface "
+          id="wbats"
+        >
+          а
+        </h2>
+
+
+        <p
+          class="text-gray-200 text-base md:text-xl max-w-xl max-h-1/4  px-4 "
+          id="bodyText"
+        >    Hi, I'm Mr Hei<br><br>
+        Welcome to <span id='wb-bold'>Black<span><span id='wb-bold' class='text-red-500'>mail<span>
+        <br>Stop your phone from <strong>ruling</strong> your life<br>  
+        Get started?</p>
+      </div>
+    
+      <div class="flex items-center justify-center bg-white h-1/3">
+        <button
+          class="border-2 border-gray-900 rounded-3xl px-8 py-4 bg-gray-900 text-gray-100 hover:bg-white hover:text-black  focus:outline-none focus:ring-2 focus:ring-gray-100 focus:ring-opacity-50 animate__animated animate__jackInTheBox animate__delay-5s"
+          id="wb-light"
+        >
+          yes
+        </button>
+      </div>
+    </div>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script>
+      //typewriter
+
+      let bodyText = document.getElementById("bodyText");
+
+      var typewriter = new Typewriter(bodyText, {
+        delay: 35,
+        deleteSpeed: 50,
+      });
+
+      function typewriterStart(typeFunc, zero, one, two, three) {
+        typewriter
+          .callFunction((thisArg) => {
+            console.log(thisArg.elements.wrapper);
+            typeFunc = true
+              ? (thisArg.elements.wrapper.innerText = "")
+              : console.log("noChange");
+          })
+          .start()
+          .pauseFor(500)
+          .typeString(zero)
+          .pauseFor(300)
+          .typeString(one)
+          .pauseFor(300)
+          .typeString(two)
+          .typeString(three);
+      }
+
+      typewriterStart(
+        false,
+        "Hi, I'm Mr Hei<br><br>",
+        "Welcome to <span id='wb-bold'>Black<span><span id='wb-bold' class='text-red-500'>mail<span>",
+        "<br>Stop your phone from <strong>ruling</strong> your life<br>  ",
+        "Get started?"
+      );
+      //fullscreen
+      let contentDiv = document.getElementById("contentDiv");
+      let btn = document.getElementById("wb-light");
+
+      btn.addEventListener("click", () => {
+        let avatarface = document.getElementsByClassName("avatarface");
+        avatarface[0].innerText = "Q";
+
+        typewriterStart(
+          true,
+          "No willpower required<br>",
+          "First upload an embarrassing photo",
+          "<br>Look at your phone, I show it to the world<br>  ",
+          "<br>Brave enough?"
+        );
+        // fullscreen api triggered on click
+        document.documentElement
+          .requestFullscreen()
+          .catch((e) => console.log(e));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casetroller</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      #typo {
+        font-family: "Avenir Next", Nunito, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+    </style>
+  </head>
+  <body id="typo">
+    <div class="flex flex-col items-center mt-4">
+      <p id="isMobileOne"></p>
+      <p id="isMobileTwo" class="mt-4"></p>
+      <img src="./qrcode.png" alt="qrcode" class="w-2/3 hidden" id="qrCode" />
+    </div>
+    <a href="./look.html">LOOOOOK</a>
+    <div>
+      <h1 class="py-8 text-center text-5xl font-bold" id="typo">BM MOTION</h1>
+    </div>
+    <div class="flex flex-col items-center" id="mainDiv">
+      <p id="timer">TIMER</p>
+      <div>
+        <p id="dostatus">deviceOrientation Status:</p>
+
+        <p id="alphaBetaGamma"></p>
+
+        <button
+          class="py-10 px-14 border-4 rounded-3xl hover:bg-blue-300 m-10"
+          id="deviceOrientation"
+        >
+          Test deviceorientation
+        </button>
+      </div>
+
+      <div>
+        <p id="dmstatus">deviceMotion Status:</p>
+
+        <button
+          class="py-10 px-14 border-4 rounded-3xl hover:bg-blue-300 m-10"
+          id="deviceMotion"
+        >
+          Test devicemotion
+        </button>
+
+        <div class="flex flex-col justify-around">
+          <p id="xyz"></p>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
